@@ -1,0 +1,57 @@
+/*
+ * static/css/base.css
+ * ────────────────────
+ * Shared design tokens for ObesityAI.
+ * Both index.html and welcome.html link this file instead of
+ * duplicating :root variables and the Google Fonts import inline.
+ *
+ * Page-specific overrides remain in each template's <style> block.
+ */
+
+/* Google Fonts ──────────────────────────────────────────────────────────────*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Design tokens ─────────────────────────────────────────────────────────────*/
+:root {
+  /* Brand colours */
+  --primary:      #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary:    #ec4899;
+  --accent:       #06b6d4;
+
+  /* Semantic colours */
+  --success:  #10b981;
+  --danger:   #ef4444;
+  --warning:  #f59e0b;
+
+  /* Backgrounds */
+  --bg-dark:  #0f0e17;
+  --bg-card:  #1a1829;
+  --bg-input: #231f36;
+
+  /* Borders */
+  --border:       rgba(255, 255, 255, .08);
+  --border-focus: rgba(99, 102, 241, .6);
+
+  /* Text */
+  --text-primary:   #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted:     #64748b;
+
+  /* Gradients */
+  --gradient-1: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #06b6d4 100%);
+  --gradient-2: linear-gradient(135deg, #1a1829 0%, #0f0e17 100%);
+}
+
+/* Base reset ─────────────────────────────────────────────────────────────────*/
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
