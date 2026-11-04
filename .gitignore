@@ -1,0 +1,114 @@
+# =============================================
+#  Python
+# =============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# =============================================
+#  Virtual environments
+# =============================================
+venv/
+venv_local/
+env/
+.env/
+.venv/
+ENV/
+site_packages/
+
+# =============================================
+#  Environment & secrets
+# =============================================
+.env
+.env.*
+*.env
+config.local.py
+secrets.py
+
+# =============================================
+#  Flask
+# =============================================
+instance/
+.webassets-cache
+flask_session/
+
+# =============================================
+#  Jupyter Notebooks
+# =============================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# =============================================
+#  ML / Data
+# =============================================
+# Ignore large datasets by default
+data/raw/*.csv
+data/raw/*.xlsx
+data/raw/*.json
+
+# Allow the official UCI obesity dataset
+!data/raw/ObesityDataSet_raw_and_data_sinthetic.csv
+
+# Keep processed test data (small)
+!data/processed/test_data.csv
+
+# Large model files - track with Git LFS
+models/*.pkl
+# =============================================
+#  OS generated
+# =============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# =============================================
+#  IDE & editors
+# =============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# =============================================
+#  Logs & temp
+# =============================================
+*.log
+*.tmp
+*.bak
+*.orig
+logs/
+tmp/
+
+# =============================================
+#  Testing / coverage
+# =============================================
+.coverage
+.pytest_cache/
+htmlcov/
+coverage.xml
+*.cover
+
+# =============================================
+#  Windows
+# =============================================
+*.bat.bak
+# Python installed packages
+site_packages/
+site-packages/
+__pycache__/
+*.py[cod]
