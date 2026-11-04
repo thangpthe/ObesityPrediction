@@ -1,0 +1,3 @@
+﻿Gender,Insufficient_Weight,Normal_Weight,Obesity_Type_I,Obesity_Type_II,Obesity_Type_III,Overweight_Level_I,Overweight_Level_II
+Female,0.1717,0.1162,0.1818,0.0,0.3232,0.1364,0.0707
+Male,0.0864,0.1545,0.1545,0.2727,0.0045,0.1273,0.2
