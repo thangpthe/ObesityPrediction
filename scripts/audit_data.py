@@ -26,6 +26,7 @@ CANDIDATE_FILES = [
     Path("dataset/data_weight_height.csv"),
     Path("dataset/obesity_with_bmi.csv"),
     Path("dataset/obesity_prediction_final_dataset.csv"),
+    Path("data/raw/ObesityDataSet_raw_and_data_sinthetic.csv"),
     Path("data/raw/obesity_prediction.csv"),
     Path("data/raw/obesity_with_bmi.csv"),
     Path("data/raw/obesity_prediction_final_dataset.csv"),
