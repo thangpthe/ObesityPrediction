@@ -139,3 +139,12 @@ Nếu không tìm được raw A/B và data dictionary, nên thay bằng một d
 ## 9. Kết luận
 
 **Phase 1 chưa thể đóng hoàn toàn về mặt provenance.** Kiểm toán kỹ thuật của các file hiện có đã thực hiện được, nhưng nguồn raw, target mapping và lịch sử tích hợp/cân bằng vẫn chưa được xác minh. Khuyến nghị dừng huấn luyện model mới cho đến khi khôi phục được các file và tài liệu ở mục 7.
+
+
+## 10. New source received after the initial audit
+
+A separate uploaded archive has now been identified as the official UCI 544 obesity-level dataset. It is documented in [uci_dataset_assessment.md](uci_dataset_assessment.md) and its source attribution/integrity details are in [data/raw/README.md](../data/raw/README.md).
+
+This UCI source is **not** the same as the legacy 17,698-row binary dataset. It contains 2,111 rows, 17 columns and the original seven-class `NObeyesdad` target; the UCI publication reports 77% synthetic records generated with Weka/SMOTE. It is therefore a suitable documented educational candidate, but not a pure raw cohort or an independent clinical test set.
+
+The source archive and extracted CSV have not been committed by this documentation update. Place them under `data/raw/` as instructed in the UCI assessment and verify the recorded SHA-256 checksums. The audit script now includes the expected extracted CSV path in its inventory.
