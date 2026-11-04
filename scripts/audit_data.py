@@ -252,12 +252,13 @@ def build_markdown(audits: list[dict[str, Any]], final: dict[str, Any] | None,
     for item in audits:
         if item["status"] != "readable":
             continue
+        columns_text = ", ".join("`" + column + "`" for column in item.get("columns", []))
         lines.extend([
             f"### `{item['path']}`",
             "",
             f"- Shape: {item.get('rows', 0):,} rows × "
             f"{len(item.get('columns', []))} columns.",
-            f"- Columns: {', '.join(f'`{c}`' for c in item.get('columns', []))}.",
+            f"- Columns: {columns_text}.",
             f"- Missing values: {sum(item.get('missing_by_column', {}).values()):,}.",
             f"- Exact duplicate rows: {item.get('duplicate_rows', 0):,}.",
         ])
