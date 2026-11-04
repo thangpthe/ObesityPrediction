@@ -112,3 +112,6 @@ site_packages/
 site-packages/
 __pycache__/
 *.py[cod]
+# Generated Phase 2 model artifacts
+models/*.joblib
+models/*.json
