@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102a43">
+    <meta name="description" content="ObesityInsight - hệ thống phân tích và phân loại mức độ béo phì bằng học máy.">
+    <title>{% block title %}ObesityInsight{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="nav-wrap">
+                <a class="brand" href="/">
+                    <span class="brand-mark">O<span>+</span></span>
+                    <span class="brand-copy"><strong>ObesityInsight</strong><small>AI HEALTH ANALYTICS</small></span>
+                </a>
+                <button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
+                <nav class="main-nav" id="mainNav">
+                    <a href="/" class="{% if request.url.path == '/' %}active{% endif %}">Trang chủ</a>
+                    <a href="/predict" class="{% if request.url.path == '/predict' %}active{% endif %}">Dự đoán</a>
+                    <a href="/about" class="{% if request.url.path == '/about' %}active{% endif %}">Về dự án</a>
+                    <a href="/docs" target="_blank" rel="noopener" class="nav-api">API Docs ↗</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <a class="brand footer-brand" href="/">
+                    <span class="brand-mark">O<span>+</span></span>
+                    <span class="brand-copy"><strong>ObesityInsight</strong><small>AI HEALTH ANALYTICS</small></span>
+                </a>
+                <p>Công cụ nghiên cứu ứng dụng học máy trong phân tích dữ liệu béo phì.</p>
+                <span class="footer-copy">© 2026 ObesityInsight</span>
+            </div>
+            <p class="footer-disclaimer">Công cụ phục vụ mục đích học tập và nghiên cứu, không thay thế tư vấn hoặc chẩn đoán y khoa.</p>
+        </footer>
+    </div>
+    <script>
+    (() => {
+        const toggle = document.querySelector(".nav-toggle");
+        const nav = document.querySelector("#mainNav");
+        if (toggle && nav) {
+            toggle.addEventListener("click", () => {
+                const opened = nav.classList.toggle("is-open");
+                toggle.setAttribute("aria-expanded", String(opened));
+            });
+        }
+    })();
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

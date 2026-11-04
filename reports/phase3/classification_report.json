@@ -1,0 +1,88 @@
+{
+    "model_file": "uci_obesity_lifestyle_v1.joblib",
+    "dataset_sha256": "28b6991062855d3d15642e38b1aa9d1b32fb7abbb5abf5b096f1868cd706154b",
+    "total_rows": 2087,
+    "train_samples": 1669,
+    "test_samples": 418,
+    "random_state": 42,
+    "overall_metrics": {
+        "accuracy": 0.8421052631578947,
+        "balanced_accuracy": 0.8394123904250065,
+        "macro_precision": 0.838170505939549,
+        "macro_recall": 0.8394123904250065,
+        "macro_f1": 0.8378985145293772,
+        "weighted_f1": 0.8414543234703626
+    },
+    "per_class_metrics": [
+        {
+            "class": "Insufficient_Weight",
+            "label_vi": "Thiếu cân",
+            "precision": 0.8571428571428571,
+            "recall": 0.9056603773584906,
+            "f1_score": 0.8807339449541285,
+            "support": 53
+        },
+        {
+            "class": "Normal_Weight",
+            "label_vi": "Cân nặng bình thường",
+            "precision": 0.7096774193548387,
+            "recall": 0.7719298245614035,
+            "f1_score": 0.7394957983193278,
+            "support": 57
+        },
+        {
+            "class": "Obesity_Type_I",
+            "label_vi": "Béo phì loại I",
+            "precision": 0.8787878787878788,
+            "recall": 0.8285714285714286,
+            "f1_score": 0.8529411764705882,
+            "support": 70
+        },
+        {
+            "class": "Obesity_Type_II",
+            "label_vi": "Béo phì loại II",
+            "precision": 0.8769230769230769,
+            "recall": 0.95,
+            "f1_score": 0.912,
+            "support": 60
+        },
+        {
+            "class": "Obesity_Type_III",
+            "label_vi": "Béo phì loại III",
+            "precision": 1.0,
+            "recall": 0.9846153846153847,
+            "f1_score": 0.9922480620155039,
+            "support": 65
+        },
+        {
+            "class": "Overweight_Level_I",
+            "label_vi": "Thừa cân mức I",
+            "precision": 0.803921568627451,
+            "recall": 0.7454545454545455,
+            "f1_score": 0.7735849056603774,
+            "support": 55
+        },
+        {
+            "class": "Overweight_Level_II",
+            "label_vi": "Thừa cân mức II",
+            "precision": 0.7407407407407407,
+            "recall": 0.6896551724137931,
+            "f1_score": 0.7142857142857143,
+            "support": 58
+        }
+    ],
+    "averages": {
+        "macro_avg": {
+            "precision": 0.838170505939549,
+            "recall": 0.8394123904250065,
+            "f1-score": 0.8378985145293772,
+            "support": 418.0
+        },
+        "weighted_avg": {
+            "precision": 0.8425583007172395,
+            "recall": 0.8421052631578947,
+            "f1-score": 0.8414543234703626,
+            "support": 418.0
+        }
+    }
+}

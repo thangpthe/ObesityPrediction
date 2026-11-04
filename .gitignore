@@ -16,6 +16,7 @@ build/
 #  Virtual environments
 # =============================================
 venv/
+venv_old/
 venv_local/
 env/
 .env/
@@ -107,11 +108,13 @@ coverage.xml
 #  Windows
 # =============================================
 *.bat.bak
-# Python installed packages
-site_packages/
+*.py[cod]
+
+# Python environment and cache
 site-packages/
 __pycache__/
 *.py[cod]
-# Generated Phase 2 model artifacts
-models/*.joblib
-models/*.json
+
+# UCI dataset: allow this specific CSV
+data/raw/*.csv
+!data/raw/ObesityDataSet_raw_and_data_sinthetic.csv

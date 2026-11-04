@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Kết quả dự đoán – ObesityInsight{% endblock %}
+
+{% block content %}
+<section class="page-heading compact-heading">
+    <span class="eyebrow">PREDICTION REPORT</span>
+    <h1>Kết quả <span>phân tích</span></h1>
+    <p>Kết quả phân loại được tạo bởi mô hình Random Forest.</p>
+</section>
+
+<section class="result-layout">
+    <article class="result-feature-card">
+        <div class="result-feature-top">
+            <span class="result-orbit">✦</span>
+            <span class="result-status">PHÂN TÍCH HOÀN TẤT</span>
+        </div>
+
+        <span class="result-overline">NHÓM PHÂN LOẠI DỰ ĐOÁN</span>
+        <h2>{{ result.predicted_label_vi }}</h2>
+        <span class="class-code">{{ result.predicted_class }}</span>
+
+        <div class="result-feature-bottom">
+            <span class="feature-check">✓</span>
+            <p>Đây là kết quả phân loại của mô hình học máy, không phải chẩn đoán y khoa.</p>
+        </div>
+
+        <div class="result-watermark">O+</div>
+    </article>
+
+    <article class="panel probability-panel">
+        <div class="panel-heading">
+            <div>
+                <span class="eyebrow">MODEL OUTPUT</span>
+                <h2>Phân bố xác suất</h2>
+                <p>Điểm xác suất của 7 nhóm phân loại.</p>
+            </div>
+            <span class="panel-icon">▥</span>
+        </div>
+
+        <div class="probability-list">
+            {% for item in result.probabilities %}
+            <div class="probability-item">
+                <div class="probability-meta">
+                    <span class="probability-name">
+                        {{ item.label_vi }}
+                        {% if item.class == result.predicted_class %}
+                        <em class="predicted-tag">Dự đoán</em>
+                        {% endif %}
+                    </span>
+                    <strong>{{ "%.2f"|format(item.percentage) }}%</strong>
+                </div>
+
+                <div class="progress-track">
+                    <div
+                        class="progress-fill {% if item.class == result.predicted_class %}progress-highlight{% endif %}"
+                        role="progressbar"
+                        aria-valuenow="{{ item.percentage }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        data-percentage="{{ item.percentage }}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <p class="probability-note">
+            <span>i</span>
+            Xác suất là đầu ra của mô hình trên các lớp đã huấn luyện. Không diễn giải như xác suất mắc bệnh hoặc mức độ chắc chắn của chẩn đoán lâm sàng.
+        </p>
+    </article>
+</section>
+
+<section class="result-detail-grid">
+    <article class="detail-tile">
+        <span class="detail-icon">⌘</span>
+        <div>
+            <small>PHƯƠNG PHÁP</small>
+            <strong>Random Forest</strong>
+            <p>Classifier</p>
+        </div>
+    </article>
+
+    <article class="detail-tile">
+        <span class="detail-icon">▤</span>
+        <div>
+            <small>DỮ LIỆU ĐẦU VÀO</small>
+            <strong>14 đặc trưng</strong>
+            <p>Lối sống và hành vi</p>
+        </div>
+    </article>
+
+    <article class="detail-tile">
+        <span class="detail-icon">◎</span>
+        <div>
+            <small>SỐ NHÓM ĐẦU RA</small>
+            <strong>07 nhóm</strong>
+            <p>Phân loại mục tiêu</p>
+        </div>
+    </article>
+</section>
+
+<div class="result-actions">
+    <a href="/predict" class="btn btn-primary">
+        Thực hiện dự đoán mới <span>→</span>
+    </a>
+    <a href="/about" class="btn btn-quiet">
+        Tìm hiểu mô hình
+    </a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".progress-fill").forEach(function (bar) {
+        const percentage = Number(bar.dataset.percentage);
+
+        if (Number.isFinite(percentage)) {
+            bar.style.width = `${Math.max(0, Math.min(100, percentage))}%`;
+        }
+    });
+});
+</script>
+{% endblock %}

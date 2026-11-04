@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Dự đoán – ObesityInsight{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <span class="eyebrow">PREDICTION WORKSPACE</span>
+    <h1>Thông tin <span>phân tích</span></h1>
+    <p>Điền các thông tin dưới đây để mô hình phân tích và đưa ra nhóm phân loại dự đoán.</p>
+    <div class="heading-meta"><span>●</span> 14 đặc trưng đầu vào <i>·</i> Thời gian thực hiện khoảng 2–3 phút</div>
+</section>
+
+<section class="form-layout">
+    <form action="/predict" method="post" class="prediction-form">
+        {% if error %}
+        <div class="alert alert-error"><strong>Không thể thực hiện dự đoán.</strong><span>{{ error }}</span></div>
+        {% endif %}
+
+        <div class="form-section">
+            <div class="form-section-title"><span class="form-section-icon">01</span><div><h2>Thông tin cơ bản</h2><p>Các thông tin cá nhân và tiền sử gia đình.</p></div></div>
+            <div class="form-grid">
+                <label class="field"><span>Tuổi <b>*</b></span><input type="number" name="Age" min="1" max="120" step="1" placeholder="Ví dụ: 25" value="{{ form_data.get('Age', '') if form_data else '' }}" required><small>Nhập tuổi theo năm.</small></label>
+                <label class="field"><span>Giới tính <b>*</b></span><select name="Gender" required><option value="">Chọn giới tính</option>{% for value in category_options.get('Gender', []) %}<option value="{{ value }}" {% if form_data and form_data.get('Gender') == value %}selected{% endif %}>{{ 'Nam' if value == 'Male' else 'Nữ' if value == 'Female' else value }}</option>{% endfor %}</select></label>
+                <label class="field field-full"><span>Tiền sử gia đình thừa cân <b>*</b></span><select name="family_history_with_overweight" required><option value="">Chọn câu trả lời</option>{% for value in category_options.get('family_history_with_overweight', []) %}<option value="{{ value }}" {% if form_data and form_data.get('family_history_with_overweight') == value %}selected{% endif %}>{{ 'Có' if value == 'yes' else 'Không' if value == 'no' else value }}</option>{% endfor %}</select></label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-section-title"><span class="form-section-icon">02</span><div><h2>Thói quen ăn uống</h2><p>Tần suất và đặc điểm trong chế độ dinh dưỡng.</p></div></div>
+            <div class="form-grid">
+                <label class="field"><span>Ăn thực phẩm giàu calo (FAVC) <b>*</b></span><select name="FAVC" required><option value="">Chọn mức độ</option>{% for value in category_options.get('FAVC', []) %}<option value="{{ value }}" {% if form_data and form_data.get('FAVC') == value %}selected{% endif %}>{{ 'Có' if value == 'yes' else 'Không' if value == 'no' else value }}</option>{% endfor %}</select></label>
+                <label class="field"><span>Ăn rau trong bữa chính (FCVC) <b>*</b></span><input type="number" name="FCVC" min="1" max="3" step="0.1" placeholder="1.0 – 3.0" value="{{ form_data.get('FCVC', '') if form_data else '' }}" required><small>Thang giá trị từ 1 đến 3.</small></label>
+                <label class="field"><span>Số bữa chính mỗi ngày (NCP) <b>*</b></span><input type="number" name="NCP" min="1" max="5" step="0.1" placeholder="Ví dụ: 3" value="{{ form_data.get('NCP', '') if form_data else '' }}" required></label>
+                <label class="field"><span>Lượng nước uống (CH2O) <b>*</b></span><input type="number" name="CH2O" min="1" max="3" step="0.1" placeholder="1.0 – 3.0" value="{{ form_data.get('CH2O', '') if form_data else '' }}" required><small>Thang giá trị từ 1 đến 3.</small></label>
+                <label class="field"><span>Ăn vặt giữa các bữa (CAEC) <b>*</b></span><select name="CAEC" required><option value="">Chọn tần suất</option>{% for value in category_options.get('CAEC', []) %}<option value="{{ value }}" {% if form_data and form_data.get('CAEC') == value %}selected{% endif %}>{{ {'no':'Không','Sometimes':'Thỉnh thoảng','Frequently':'Thường xuyên','Always':'Luôn luôn'}.get(value, value) }}</option>{% endfor %}</select></label>
+                <label class="field"><span>Uống đồ uống có cồn (CALC) <b>*</b></span><select name="CALC" required><option value="">Chọn tần suất</option>{% for value in category_options.get('CALC', []) %}<option value="{{ value }}" {% if form_data and form_data.get('CALC') == value %}selected{% endif %}>{{ {'no':'Không','Sometimes':'Thỉnh thoảng','Frequently':'Thường xuyên','Always':'Luôn luôn'}.get(value, value) }}</option>{% endfor %}</select></label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-section-title"><span class="form-section-icon">03</span><div><h2>Hoạt động và lối sống</h2><p>Thông tin về vận động, sử dụng thiết bị và phương tiện di chuyển.</p></div></div>
+            <div class="form-grid">
+                <label class="field"><span>Hoạt động thể chất (FAF) <b>*</b></span><input type="number" name="FAF" min="0" max="3" step="0.1" placeholder="0.0 – 3.0" value="{{ form_data.get('FAF', '') if form_data else '' }}" required><small>Thang giá trị từ 0 đến 3.</small></label>
+                <label class="field"><span>Thời gian dùng thiết bị (TUE) <b>*</b></span><input type="number" name="TUE" min="0" max="2" step="0.1" placeholder="0.0 – 2.0" value="{{ form_data.get('TUE', '') if form_data else '' }}" required><small>Thang giá trị từ 0 đến 2.</small></label>
+                <label class="field"><span>Hút thuốc (SMOKE) <b>*</b></span><select name="SMOKE" required><option value="">Chọn câu trả lời</option>{% for value in category_options.get('SMOKE', []) %}<option value="{{ value }}" {% if form_data and form_data.get('SMOKE') == value %}selected{% endif %}>{{ 'Có' if value == 'yes' else 'Không' if value == 'no' else value }}</option>{% endfor %}</select></label>
+                <label class="field"><span>Theo dõi lượng calo (SCC) <b>*</b></span><select name="SCC" required><option value="">Chọn câu trả lời</option>{% for value in category_options.get('SCC', []) %}<option value="{{ value }}" {% if form_data and form_data.get('SCC') == value %}selected{% endif %}>{{ 'Có' if value == 'yes' else 'Không' if value == 'no' else value }}</option>{% endfor %}</select></label>
+                <label class="field field-full"><span>Phương tiện di chuyển chính (MTRANS) <b>*</b></span><select name="MTRANS" required><option value="">Chọn phương tiện</option>{% for value in category_options.get('MTRANS', []) %}<option value="{{ value }}" {% if form_data and form_data.get('MTRANS') == value %}selected{% endif %}>{{ {'Automobile':'Ô tô','Bike':'Xe đạp','Motorbike':'Xe máy','Public_Transportation':'Phương tiện công cộng','Walking':'Đi bộ'}.get(value, value) }}</option>{% endfor %}</select></label>
+            </div>
+        </div>
+
+        <div class="form-consent"><span class="consent-icon">i</span><p>Vui lòng cung cấp thông tin phù hợp nhất. Kết quả là đầu ra của mô hình học máy phục vụ mục đích học tập và nghiên cứu, không phải chẩn đoán y khoa.</p></div>
+        <div class="form-submit-row"><a href="/" class="btn btn-quiet">← Quay lại</a><button type="submit" class="btn btn-primary">Phân tích dữ liệu <span>→</span></button></div>
+    </form>
+
+    <aside class="form-aside">
+        <div class="aside-card aside-dark"><span class="aside-kicker">YOUR DATA, YOUR INSIGHT</span><div class="aside-art">✳</div><h3>Phân tích toàn diện</h3><p>Mô hình xem xét đồng thời nhiều đặc trưng thay vì dựa trên một yếu tố riêng lẻ.</p><div class="aside-divider"></div><div class="aside-fact"><strong>14</strong><span>đặc trưng được sử dụng</span></div><div class="aside-fact"><strong>07</strong><span>nhóm phân loại đầu ra</span></div></div>
+        <div class="aside-card"><span class="aside-kicker">PRIVACY NOTE</span><h3>Thông tin đầu vào</h3><p>Chỉ nhập dữ liệu cần thiết cho lượt dự đoán. Không nhập thông tin định danh cá nhân như họ tên, số điện thoại hoặc địa chỉ.</p></div>
+    </aside>
+</section>
+{% endblock %}

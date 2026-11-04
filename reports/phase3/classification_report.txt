@@ -1,0 +1,27 @@
+PHASE 3 - CLASSIFICATION REPORT
+UCI Obesity Lifestyle Dataset
+
+                      precision    recall  f1-score   support
+
+           Thiếu cân       0.86      0.91      0.88        53
+Cân nặng bình thường       0.71      0.77      0.74        57
+      Béo phì loại I       0.88      0.83      0.85        70
+     Béo phì loại II       0.88      0.95      0.91        60
+    Béo phì loại III       1.00      0.98      0.99        65
+      Thừa cân mức I       0.80      0.75      0.77        55
+     Thừa cân mức II       0.74      0.69      0.71        58
+
+            accuracy                           0.84       418
+           macro avg       0.84      0.84      0.84       418
+        weighted avg       0.84      0.84      0.84       418
+
+
+OVERALL METRICS
+accuracy: 0.842105
+balanced_accuracy: 0.839412
+macro_precision: 0.838171
+macro_recall: 0.839412
+macro_f1: 0.837899
+weighted_f1: 0.841454
+
+Educational classification only; not a medical diagnostic tool.

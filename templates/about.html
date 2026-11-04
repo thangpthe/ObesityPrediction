@@ -1,0 +1,362 @@
+{% extends "base.html" %}
+
+{% block title %}Về dự án – ObesityInsight{% endblock %}
+
+{% block content %}
+
+<section class="page-heading">
+    <span class="eyebrow">ABOUT THE PROJECT</span>
+
+    <h1>
+        Đằng sau <span>ObesityInsight</span>
+    </h1>
+
+    <p>
+        Một dự án ứng dụng học máy để khám phá mối liên hệ giữa lối sống,
+        thói quen sinh hoạt và các nhóm phân loại mức độ béo phì.
+    </p>
+</section>
+
+
+<section class="about-hero panel">
+    <div class="about-symbol">O<span>+</span></div>
+
+    <div>
+        <span class="eyebrow">PROJECT OVERVIEW</span>
+
+        <h2>
+            Phân tích dựa trên dữ liệu, không thay thế chuyên môn y tế
+        </h2>
+
+        <p>
+            Hệ thống tiếp nhận các đặc trưng về nhân khẩu học, dinh dưỡng
+            và hoạt động thể chất, sau đó sử dụng mô hình Random Forest
+            để đưa ra kết quả phân loại tham khảo.
+        </p>
+    </div>
+</section>
+
+
+<section class="section-block">
+    <div class="section-heading left-heading">
+        <span class="eyebrow">DATASET</span>
+
+        <h2>Tổng quan dữ liệu</h2>
+
+        <p>
+            Bộ dữ liệu được xử lý trước khi đưa vào huấn luyện
+            và đánh giá mô hình.
+        </p>
+    </div>
+
+    <div class="about-stats">
+        <div class="about-stat">
+            <strong>2.111</strong>
+            <span>Bản ghi ban đầu</span>
+        </div>
+
+        <div class="about-stat">
+            <strong>24</strong>
+            <span>Bản ghi trùng lặp loại bỏ</span>
+        </div>
+
+        <div class="about-stat">
+            <strong>2.087</strong>
+            <span>Bản ghi sau làm sạch</span>
+        </div>
+
+        <div class="about-stat">
+            <strong>14 / 7</strong>
+            <span>Đặc trưng / nhóm mục tiêu</span>
+        </div>
+    </div>
+</section>
+
+
+<section class="section-block">
+    <div class="section-heading left-heading">
+        <span class="eyebrow">METHODOLOGY</span>
+        <h2>Quy trình xây dựng mô hình</h2>
+    </div>
+
+    <div class="method-list">
+
+        <div class="method-row">
+            <span>01</span>
+
+            <div>
+                <h3>Tiền xử lý dữ liệu</h3>
+
+                <p>
+                    Kiểm tra dữ liệu, loại bỏ 24 bản ghi trùng lặp
+                    và xác định các nhóm đặc trưng số,
+                    đặc trưng phân loại.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="method-row">
+            <span>02</span>
+
+            <div>
+                <h3>Xây dựng pipeline</h3>
+
+                <p>
+                    Sử dụng SimpleImputer, StandardScaler cho
+                    đặc trưng số và OneHotEncoder cho đặc trưng
+                    phân loại.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="method-row">
+            <span>03</span>
+
+            <div>
+                <h3>Huấn luyện và đánh giá</h3>
+
+                <p>
+                    Mô hình Random Forest được đánh giá bằng
+                    các chỉ số Accuracy, Balanced Accuracy,
+                    Precision, Recall và F1-score.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="method-row">
+            <span>04</span>
+
+            <div>
+                <h3>Triển khai ứng dụng</h3>
+
+                <p>
+                    FastAPI cung cấp giao diện web và API dự đoán,
+                    sử dụng lại mô hình đã huấn luyện.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- MODEL PERFORMANCE -->
+
+<section class="section-block">
+    <div class="section-heading left-heading">
+        <span class="eyebrow">MODEL PERFORMANCE</span>
+
+        <h2>Kết quả đánh giá mô hình</h2>
+
+        <p>
+            Các chỉ số được tính trên tập kiểm tra gồm 418 mẫu.
+        </p>
+    </div>
+
+    <div class="evaluation-metrics-grid">
+
+        {% for metric in metrics %}
+        <div class="metric-card">
+            <span>{{ metric.name }}</span>
+
+            <strong>{{ "%.2f"|format(metric.value) }}%</strong>
+
+            <div class="metric-track">
+                <i style="width: {{ metric.value }}%"></i>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+
+<!-- CONFUSION MATRIX -->
+
+<section class="section-block">
+    <div class="section-heading left-heading">
+        <span class="eyebrow">CONFUSION MATRIX</span>
+
+        <h2>Ma trận nhầm lẫn</h2>
+
+        <p>
+            Thể hiện số lượng dự đoán đúng và các trường hợp
+            mô hình nhầm lẫn giữa những nhóm phân loại.
+        </p>
+    </div>
+
+    <div class="evaluation-panel">
+
+        {% if confusion_matrix_exists %}
+
+        <div class="evaluation-image-wrap">
+            <img
+                src="/reports/phase3/confusion_matrix.png"
+                alt="Confusion Matrix của mô hình phân loại béo phì"
+                loading="lazy"
+            >
+        </div>
+
+        {% else %}
+
+        <div class="evaluation-empty">
+            Chưa tìm thấy tệp confusion_matrix.png.
+            Vui lòng chạy chương trình đánh giá Confusion Matrix.
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+
+
+<!-- CLASSIFICATION REPORT -->
+
+<section class="section-block">
+    <div class="section-heading left-heading">
+        <span class="eyebrow">CLASSIFICATION REPORT</span>
+
+        <h2>Hiệu suất theo từng nhóm</h2>
+
+        <p>
+            Precision, Recall, F1-score và số lượng mẫu
+            của từng nhóm phân loại.
+        </p>
+    </div>
+
+    <div class="evaluation-panel">
+
+        {% if classification_rows %}
+
+        <div class="evaluation-table-wrap">
+            <table class="evaluation-table">
+
+                <thead>
+                    <tr>
+                        {% for header in classification_headers %}
+                        <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for row in classification_rows %}
+                    <tr>
+                        {% for header in classification_headers %}
+                        <td>{{ row[header] }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+        {% else %}
+
+        <div class="evaluation-empty">
+            Chưa tìm thấy classification_report.csv.
+            Vui lòng chạy chương trình Classification Report.
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+
+
+<!-- FEATURE IMPORTANCE -->
+
+<section class="section-block">
+    <div class="section-heading left-heading">
+        <span class="eyebrow">FEATURE IMPORTANCE</span>
+
+        <h2>Mức độ quan trọng của đặc trưng</h2>
+
+        <p>
+            Kết quả Permutation Importance trên tập kiểm tra,
+            sử dụng Macro-F1 làm thước đo.
+        </p>
+    </div>
+
+    <div class="evaluation-panel">
+
+        {% if feature_importance_exists %}
+
+        <div class="evaluation-image-wrap">
+            <img
+                src="/reports/phase3/feature_importance.png"
+                alt="Biểu đồ Feature Importance của 14 đặc trưng"
+                loading="lazy"
+            >
+        </div>
+
+        {% else %}
+
+        <div class="evaluation-empty">
+            Chưa tìm thấy feature_importance.png.
+            Vui lòng chạy chương trình Feature Importance.
+        </div>
+
+        {% endif %}
+
+        {% if feature_rows %}
+
+        <h3 class="evaluation-subtitle">
+            Bảng xếp hạng đặc trưng
+        </h3>
+
+        <div class="evaluation-table-wrap">
+            <table class="evaluation-table">
+
+                <thead>
+                    <tr>
+                        {% for header in feature_headers %}
+                        <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for row in feature_rows %}
+                    <tr>
+                        {% for header in feature_headers %}
+                        <td>{{ row[header] }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+
+
+<!-- INTERPRETATION -->
+
+<section class="notice-panel evaluation-notice">
+    <span class="notice-icon">!</span>
+
+    <div>
+        <h3>Giới hạn và cách diễn giải</h3>
+
+        <p>
+            Bộ dữ liệu có chứa dữ liệu tổng hợp; kết quả đánh giá nội bộ
+            không đồng nghĩa với hiệu năng trên mọi quần thể thực tế.
+            Permutation Importance phản ánh mức độ mô hình phụ thuộc
+            vào từng đặc trưng, không chứng minh quan hệ nhân quả.
+            Nhãn mục tiêu được xây dựng từ dữ liệu nghiên cứu và kết quả
+            mô hình không phải chẩn đoán, đánh giá nguy cơ lâm sàng
+            hay khuyến nghị điều trị.
+        </p>
+    </div>
+</section>
+
+{% endblock %}

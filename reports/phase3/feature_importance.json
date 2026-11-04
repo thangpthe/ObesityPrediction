@@ -1,0 +1,113 @@
+{
+    "model_file": "uci_obesity_lifestyle_v1.joblib",
+    "dataset_sha256": "28b6991062855d3d15642e38b1aa9d1b32fb7abbb5abf5b096f1868cd706154b",
+    "total_rows": 2087,
+    "train_samples": 1669,
+    "test_samples": 418,
+    "n_features": 14,
+    "baseline_macro_f1": 0.8378985145293772,
+    "method": "Permutation Importance",
+    "scoring": "f1_macro",
+    "n_repeats": 30,
+    "random_state": 42,
+    "features": [
+        {
+            "rank": 1,
+            "feature": "Gender",
+            "feature_label_vi": "Giới tính",
+            "importance_mean": 0.26260949155903307,
+            "importance_std": 0.015897685498917714
+        },
+        {
+            "rank": 2,
+            "feature": "Age",
+            "feature_label_vi": "Tuổi",
+            "importance_mean": 0.1743522904507989,
+            "importance_std": 0.014460111222441722
+        },
+        {
+            "rank": 3,
+            "feature": "FCVC",
+            "feature_label_vi": "Tần suất ăn rau",
+            "importance_mean": 0.1682803141104781,
+            "importance_std": 0.015538654559862405
+        },
+        {
+            "rank": 4,
+            "feature": "family_history_with_overweight",
+            "feature_label_vi": "Tiền sử gia đình thừa cân",
+            "importance_mean": 0.1605565619828718,
+            "importance_std": 0.014373998311727094
+        },
+        {
+            "rank": 5,
+            "feature": "CALC",
+            "feature_label_vi": "Sử dụng đồ uống có cồn",
+            "importance_mean": 0.1107972766767045,
+            "importance_std": 0.013517928865108155
+        },
+        {
+            "rank": 6,
+            "feature": "NCP",
+            "feature_label_vi": "Số bữa ăn chính",
+            "importance_mean": 0.07640972480445844,
+            "importance_std": 0.008676593042112482
+        },
+        {
+            "rank": 7,
+            "feature": "CAEC",
+            "feature_label_vi": "Ăn vặt giữa các bữa",
+            "importance_mean": 0.06957163986035182,
+            "importance_std": 0.009551867623306195
+        },
+        {
+            "rank": 8,
+            "feature": "TUE",
+            "feature_label_vi": "Thời gian sử dụng thiết bị điện tử",
+            "importance_mean": 0.05088195762252997,
+            "importance_std": 0.009721968965710743
+        },
+        {
+            "rank": 9,
+            "feature": "CH2O",
+            "feature_label_vi": "Lượng nước uống",
+            "importance_mean": 0.04486464598266746,
+            "importance_std": 0.009090084538252021
+        },
+        {
+            "rank": 10,
+            "feature": "FAF",
+            "feature_label_vi": "Hoạt động thể chất",
+            "importance_mean": 0.04035007979066398,
+            "importance_std": 0.010820554054752327
+        },
+        {
+            "rank": 11,
+            "feature": "MTRANS",
+            "feature_label_vi": "Phương tiện di chuyển",
+            "importance_mean": 0.03194538387024356,
+            "importance_std": 0.008555515728561424
+        },
+        {
+            "rank": 12,
+            "feature": "FAVC",
+            "feature_label_vi": "Thường xuyên ăn thực phẩm giàu calo",
+            "importance_mean": 0.027190120026733933,
+            "importance_std": 0.005161838477391711
+        },
+        {
+            "rank": 13,
+            "feature": "SCC",
+            "feature_label_vi": "Theo dõi lượng calo",
+            "importance_mean": 0.0066088375019503305,
+            "importance_std": 0.001845654166185882
+        },
+        {
+            "rank": 14,
+            "feature": "SMOKE",
+            "feature_label_vi": "Hút thuốc",
+            "importance_mean": 0.00026887295458725145,
+            "importance_std": 0.0008066188637617544
+        }
+    ]
+}

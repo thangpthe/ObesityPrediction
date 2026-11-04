@@ -1,0 +1,43 @@
+{
+  "model_name": "Random Forest tuned",
+  "model_file": "uci_obesity_lifestyle_tuned_v1.joblib",
+  "trained_at_utc": "2026-11-04T09:42:09.208849+00:00",
+  "random_state": 42,
+  "n_iter": 30,
+  "cv_folds": 5,
+  "selection_metric": "f1_macro",
+  "features": [
+    "Age",
+    "FCVC",
+    "NCP",
+    "CH2O",
+    "FAF",
+    "TUE",
+    "Gender",
+    "family_history_with_overweight",
+    "FAVC",
+    "CAEC",
+    "SMOKE",
+    "SCC",
+    "CALC",
+    "MTRANS"
+  ],
+  "best_params": {
+    "classifier__n_estimators": 400,
+    "classifier__min_samples_split": 2,
+    "classifier__min_samples_leaf": 2,
+    "classifier__max_features": "sqrt",
+    "classifier__max_depth": 30,
+    "classifier__class_weight": "balanced"
+  },
+  "best_cv_macro_f1": 0.8384449350876059,
+  "baseline_cv_macro_f1": 0.8384449350876059,
+  "baseline_cv_macro_f1_std": 0.01323391502155368,
+  "holdout_metrics_exploratory": {
+    "accuracy": 0.8421052631578947,
+    "balanced_accuracy": 0.8394123904250065,
+    "macro_f1": 0.8378985145293772,
+    "weighted_f1": 0.8414543234703626
+  },
+  "scikit_learn_version": "1.9.1"
+}

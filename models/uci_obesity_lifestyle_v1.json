@@ -1,0 +1,69 @@
+{
+  "source_file": "data\\raw\\ObesityDataSet_raw_and_data_sinthetic.csv",
+  "sha256": "28b6991062855d3d15642e38b1aa9d1b32fb7abbb5abf5b096f1868cd706154b",
+  "rows_before_deduplication": 2111,
+  "exact_duplicate_rows_removed": 24,
+  "rows_after_deduplication": 2087,
+  "n_features": 14,
+  "target": "NObeyesdad",
+  "classes": [
+    "Insufficient_Weight",
+    "Normal_Weight",
+    "Obesity_Type_I",
+    "Obesity_Type_II",
+    "Obesity_Type_III",
+    "Overweight_Level_I",
+    "Overweight_Level_II"
+  ],
+  "excluded_features": [
+    "Height",
+    "Weight"
+  ],
+  "model_name": "Random Forest",
+  "model_file": "uci_obesity_lifestyle_v1.joblib",
+  "trained_at_utc": "2026-11-04T09:26:34.230637+00:00",
+  "random_state": 42,
+  "features": [
+    "Age",
+    "FCVC",
+    "NCP",
+    "CH2O",
+    "FAF",
+    "TUE",
+    "Gender",
+    "family_history_with_overweight",
+    "FAVC",
+    "CAEC",
+    "SMOKE",
+    "SCC",
+    "CALC",
+    "MTRANS"
+  ],
+  "numeric_features": [
+    "Age",
+    "FCVC",
+    "NCP",
+    "CH2O",
+    "FAF",
+    "TUE"
+  ],
+  "categorical_features": [
+    "Gender",
+    "family_history_with_overweight",
+    "FAVC",
+    "CAEC",
+    "SMOKE",
+    "SCC",
+    "CALC",
+    "MTRANS"
+  ],
+  "test_metrics": {
+    "accuracy": 0.8421052631578947,
+    "balanced_accuracy": 0.8394123904250065,
+    "macro_precision": 0.838170505939549,
+    "macro_recall": 0.8394123904250065,
+    "macro_f1": 0.8378985145293772,
+    "weighted_f1": 0.8414543234703626
+  },
+  "scikit_learn_version": "1.9.1"
+}
