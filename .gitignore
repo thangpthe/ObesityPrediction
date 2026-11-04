@@ -118,3 +118,5 @@ __pycache__/
 # UCI dataset: allow this specific CSV
 data/raw/*.csv
 !data/raw/ObesityDataSet_raw_and_data_sinthetic.csv
+
+BTL_KPDL.docx
