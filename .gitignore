@@ -1,5 +1,5 @@
 # =============================================
-#  Python
+# Python
 # =============================================
 __pycache__/
 *.py[cod]
@@ -7,25 +7,27 @@ __pycache__/
 *.so
 *.egg
 *.egg-info/
-dist/
+
+# Build artifacts
 build/
+dist/
 .eggs/
 *.whl
 
 # =============================================
-#  Virtual environments
+# Virtual environments
 # =============================================
 venv/
 venv_old/
 venv_local/
 env/
-.env/
 .venv/
 ENV/
 site_packages/
+site-packages/
 
 # =============================================
-#  Environment & secrets
+# Environment and secrets
 # =============================================
 .env
 .env.*
@@ -34,36 +36,29 @@ config.local.py
 secrets.py
 
 # =============================================
-#  Flask
-# =============================================
-instance/
-.webassets-cache
-flask_session/
-
-# =============================================
-#  Jupyter Notebooks
+# Jupyter
 # =============================================
 .ipynb_checkpoints/
-*.ipynb_checkpoints
 
 # =============================================
-#  ML / Data
+# Data
 # =============================================
-# Ignore large datasets by default
 data/raw/*.csv
 data/raw/*.xlsx
 data/raw/*.json
 
-# Allow the official UCI obesity dataset
+# Allow official UCI dataset
 !data/raw/ObesityDataSet_raw_and_data_sinthetic.csv
 
-# Keep processed test data (small)
-!data/processed/test_data.csv
-
-# Large model files - track with Git LFS
-models/*.pkl
 # =============================================
-#  OS generated
+# Models
+# =============================================
+# Legacy pickle models
+models/*.pkl
+models/**/*.pkl
+
+# =============================================
+# OS generated
 # =============================================
 .DS_Store
 .DS_Store?
@@ -75,7 +70,7 @@ Thumbs.db
 desktop.ini
 
 # =============================================
-#  IDE & editors
+# IDE and editors
 # =============================================
 .vscode/
 .idea/
@@ -86,7 +81,7 @@ desktop.ini
 .pydevproject
 
 # =============================================
-#  Logs & temp
+# Logs and temporary files
 # =============================================
 *.log
 *.tmp
@@ -96,7 +91,7 @@ logs/
 tmp/
 
 # =============================================
-#  Testing / coverage
+# Testing and coverage
 # =============================================
 .coverage
 .pytest_cache/
@@ -105,18 +100,6 @@ coverage.xml
 *.cover
 
 # =============================================
-#  Windows
+# Local documents
 # =============================================
-*.bat.bak
-*.py[cod]
-
-# Python environment and cache
-site-packages/
-__pycache__/
-*.py[cod]
-
-# UCI dataset: allow this specific CSV
-data/raw/*.csv
-!data/raw/ObesityDataSet_raw_and_data_sinthetic.csv
-
 BTL_KPDL.docx

@@ -443,7 +443,6 @@ ObesityPrediction/
 │
 ├── app.py
 ├── requirements.txt
-├── requirements-phase2.txt
 ├── .gitattributes
 ├── .gitignore
 └── README.md

@@ -20,16 +20,13 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 CANDIDATE_FILES = [
-    Path("dataset/obesity_prediction.csv"),
-    Path("dataset/obesity_prediction_dataset_final.csv"),
-    Path("dataset/data_bmi.csv"),
-    Path("dataset/data_weight_height.csv"),
-    Path("dataset/obesity_with_bmi.csv"),
-    Path("dataset/obesity_prediction_final_dataset.csv"),
-    Path("data/raw/ObesityDataSet_raw_and_data_sinthetic.csv"),
     Path("data/raw/obesity_prediction.csv"),
+    Path("data/raw/obesity_prediction_dataset_final.csv"),
+    Path("data/raw/data_bmi.csv"),
+    Path("data/raw/data_weight_height.csv"),
     Path("data/raw/obesity_with_bmi.csv"),
     Path("data/raw/obesity_prediction_final_dataset.csv"),
+    Path("data/raw/ObesityDataSet_raw_and_data_sinthetic.csv"),
 ]
 TARGET = "Obesity"
 BMI_INPUTS = {"Height", "Weight", "BMI"}
@@ -317,7 +314,7 @@ def build_markdown(audits: list[dict[str, Any]], final: dict[str, Any] | None,
         "",
         "## Data quality decisions",
         "",
-        "1. Do not overwrite or resample files under `dataset/` during auditing.",
+        "1. Do not overwrite or resample source CSV files under `data/raw/` during auditing.",
         "2. Treat `obesity_prediction_dataset_final.csv` as a processed/balanced candidate, "
         "not as raw data.",
         "3. Recover the pre-integration dataset and the pre-balancing dataset before training "
@@ -329,11 +326,9 @@ def build_markdown(audits: list[dict[str, Any]], final: dict[str, Any] | None,
         "inside training folds.",
         "",
         "## Files that should be recovered",
-        "",
-        "- The non-empty original `obesity_prediction.csv` referenced by "
-        "`scripts/config.py`.",
-        "- The `obesity_with_bmi.csv` referenced by root-level `pre-processing.py`.",
-        "- The integrated dataset before duplicate removal / before undersampling "
+        "","- Verify the source lineage and original label mapping of ""`data/raw/obesity_prediction.csv`.",
+        "- Verify the source lineage and original label mapping of ""`data/raw/obesity_prediction.csv`.",
+        "- Review the transformation history and data dictionary of ""`data/raw/obesity_prediction_dataset_final.csv`.",
         "(a project note found online mentions 18,891 rows before balancing; this is "
         "a lead to verify, not a substitute for the actual file).",
         "- Data dictionary or source documentation defining the exact binary target mapping.",
@@ -368,7 +363,7 @@ def main() -> None:
     reports_dir.mkdir(exist_ok=True)
 
     audits = [inspect_csv(ROOT / relative) for relative in CANDIDATE_FILES]
-    final_path = ROOT / "dataset/obesity_prediction_dataset_final.csv"
+    final_path = ROOT / "data/raw/obesity_prediction_dataset_final.csv"
     final: dict[str, Any] | None = None
     figures: list[str] = []
     if final_path.exists() and final_path.stat().st_size > 0:

@@ -1,0 +1,707 @@
+{
+  "files": [
+    {
+      "path": "data\\raw\\obesity_prediction.csv",
+      "exists": true,
+      "bytes": 1113405,
+      "status": "readable",
+      "rows": 10305,
+      "columns": [
+        "id",
+        "Gender",
+        "Age",
+        "Height",
+        "Weight",
+        "family_history_with_overweight",
+        "FAVC",
+        "FCVC",
+        "NCP",
+        "CAEC",
+        "SMOKE",
+        "CH2O",
+        "SCC",
+        "FAF",
+        "TUE",
+        "CALC",
+        "MTRANS",
+        "NObeyesdad"
+      ],
+      "duplicate_rows": 0,
+      "missing_by_column": {
+        "id": 0,
+        "Gender": 0,
+        "Age": 0,
+        "Height": 0,
+        "Weight": 0,
+        "family_history_with_overweight": 0,
+        "FAVC": 0,
+        "FCVC": 0,
+        "NCP": 0,
+        "CAEC": 0,
+        "SMOKE": 0,
+        "CH2O": 0,
+        "SCC": 0,
+        "FAF": 0,
+        "TUE": 0,
+        "CALC": 0,
+        "MTRANS": 0,
+        "NObeyesdad": 0
+      },
+      "dtypes": {
+        "id": "int64",
+        "Gender": "str",
+        "Age": "int64",
+        "Height": "float64",
+        "Weight": "float64",
+        "family_history_with_overweight": "str",
+        "FAVC": "str",
+        "FCVC": "float64",
+        "NCP": "float64",
+        "CAEC": "str",
+        "SMOKE": "str",
+        "CH2O": "float64",
+        "SCC": "str",
+        "FAF": "float64",
+        "TUE": "float64",
+        "CALC": "str",
+        "MTRANS": "str",
+        "NObeyesdad": "str"
+      },
+      "numeric_summary": {
+        "id": {
+          "min": 1.0,
+          "max": 20754.0,
+          "mean": 10285.88558951965,
+          "std": 6023.534778233098,
+          "unique": 10305
+        },
+        "Age": {
+          "min": 14.0,
+          "max": 61.0,
+          "mean": 22.37020863658418,
+          "std": 5.128839400850049,
+          "unique": 39
+        },
+        "Height": {
+          "min": 1.45,
+          "max": 1.975663,
+          "mean": 1.6775208973313926,
+          "std": 0.0826454522288032,
+          "unique": 903
+        },
+        "Weight": {
+          "min": 39.0,
+          "max": 155.872093,
+          "mean": 76.91290256031053,
+          "std": 21.614450369174875,
+          "unique": 776
+        },
+        "FCVC": {
+          "min": 1.0,
+          "max": 3.0,
+          "mean": 2.4166933864143623,
+          "std": 0.5519763638014712,
+          "unique": 323
+        },
+        "NCP": {
+          "min": 1.0,
+          "max": 4.0,
+          "mean": 2.765962526637555,
+          "std": 0.7608687420067473,
+          "unique": 272
+        },
+        "CH2O": {
+          "min": 1.0,
+          "max": 3.0,
+          "mean": 2.036715439689471,
+          "std": 0.6339337639834389,
+          "unique": 661
+        },
+        "FAF": {
+          "min": 0.0,
+          "max": 3.0,
+          "mean": 0.9792898268801553,
+          "std": 0.9214766050813911,
+          "unique": 453
+        },
+        "TUE": {
+          "min": 0.0,
+          "max": 2.0,
+          "mean": 0.637275231441048,
+          "std": 0.6439270995227541,
+          "unique": 640
+        }
+      }
+    },
+    {
+      "path": "data\\raw\\obesity_prediction_dataset_final.csv",
+      "exists": true,
+      "bytes": 509992,
+      "status": "readable",
+      "rows": 17698,
+      "columns": [
+        "Gender",
+        "Age",
+        "Height",
+        "Weight",
+        "BMI",
+        "family_history_with_overweight",
+        "CH2O",
+        "FAF",
+        "Obesity"
+      ],
+      "duplicate_rows": 109,
+      "missing_by_column": {
+        "Gender": 0,
+        "Age": 0,
+        "Height": 0,
+        "Weight": 0,
+        "BMI": 0,
+        "family_history_with_overweight": 0,
+        "CH2O": 0,
+        "FAF": 0,
+        "Obesity": 0
+      },
+      "dtypes": {
+        "Gender": "int64",
+        "Age": "int64",
+        "Height": "float64",
+        "Weight": "float64",
+        "BMI": "float64",
+        "family_history_with_overweight": "int64",
+        "CH2O": "int64",
+        "FAF": "int64",
+        "Obesity": "int64"
+      },
+      "target_counts": {
+        "0": 8849,
+        "1": 8849
+      },
+      "target_unique_values": [
+        "0",
+        "1"
+      ],
+      "numeric_summary": {
+        "Gender": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.5361057746638038,
+          "std": 0.4987087587563903,
+          "unique": 2
+        },
+        "Age": {
+          "min": 14.0,
+          "max": 61.0,
+          "mean": 24.081873658040458,
+          "std": 5.977942376264234,
+          "unique": 42
+        },
+        "Height": {
+          "min": 1.45,
+          "max": 1.98,
+          "mean": 1.7077025652616113,
+          "std": 0.08964490366493705,
+          "unique": 51
+        },
+        "Weight": {
+          "min": 39.0,
+          "max": 173.0,
+          "mean": 88.34813312238671,
+          "std": 26.419991826109154,
+          "unique": 1650
+        },
+        "BMI": {
+          "min": 12.87,
+          "max": 55.15,
+          "mean": 30.086515990507404,
+          "std": 8.043382998269097,
+          "unique": 2803
+        },
+        "family_history_with_overweight": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.8289072211549328,
+          "std": 0.3766006554190271,
+          "unique": 2
+        },
+        "CH2O": {
+          "min": 1.0,
+          "max": 3.0,
+          "mean": 2.017007571477003,
+          "std": 0.6686364379546426,
+          "unique": 3
+        },
+        "FAF": {
+          "min": 0.0,
+          "max": 3.0,
+          "mean": 1.0467849474516895,
+          "std": 0.8684528972461696,
+          "unique": 4
+        },
+        "Obesity": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.5,
+          "std": 0.5000141264885816,
+          "unique": 2
+        }
+      },
+      "bmi_consistency": {
+        "rows_checked": 17698,
+        "mean_absolute_error": 0.009712282895882988,
+        "median_absolute_error": 0.0025318395097215785,
+        "p90_absolute_error": 0.004889999572810666,
+        "p95_absolute_error": 0.06408936323241556,
+        "p99_absolute_error": 0.17020787653903952,
+        "max_absolute_error": 0.2730940793389607,
+        "count_abs_error_gt_0_02": 1268,
+        "count_abs_error_gt_0_1": 618
+      }
+    },
+    {
+      "path": "data\\raw\\data_bmi.csv",
+      "exists": true,
+      "bytes": 334260,
+      "status": "readable",
+      "rows": 17698,
+      "columns": [
+        "Gender",
+        "Age",
+        "BMI",
+        "family_history_with_overweight",
+        "CH2O",
+        "FAF",
+        "Obesity"
+      ],
+      "duplicate_rows": 1112,
+      "missing_by_column": {
+        "Gender": 0,
+        "Age": 0,
+        "BMI": 0,
+        "family_history_with_overweight": 0,
+        "CH2O": 0,
+        "FAF": 0,
+        "Obesity": 0
+      },
+      "dtypes": {
+        "Gender": "int64",
+        "Age": "int64",
+        "BMI": "float64",
+        "family_history_with_overweight": "int64",
+        "CH2O": "int64",
+        "FAF": "int64",
+        "Obesity": "int64"
+      },
+      "target_counts": {
+        "0": 8849,
+        "1": 8849
+      },
+      "target_unique_values": [
+        "0",
+        "1"
+      ],
+      "numeric_summary": {
+        "Gender": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.5361057746638038,
+          "std": 0.4987087587563903,
+          "unique": 2
+        },
+        "Age": {
+          "min": 14.0,
+          "max": 61.0,
+          "mean": 24.081873658040458,
+          "std": 5.977942376264234,
+          "unique": 42
+        },
+        "BMI": {
+          "min": 12.87,
+          "max": 55.15,
+          "mean": 30.086515990507404,
+          "std": 8.043382998269097,
+          "unique": 2803
+        },
+        "family_history_with_overweight": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.8289072211549328,
+          "std": 0.3766006554190271,
+          "unique": 2
+        },
+        "CH2O": {
+          "min": 1.0,
+          "max": 3.0,
+          "mean": 2.017007571477003,
+          "std": 0.6686364379546426,
+          "unique": 3
+        },
+        "FAF": {
+          "min": 0.0,
+          "max": 3.0,
+          "mean": 1.0467849474516895,
+          "std": 0.8684528972461696,
+          "unique": 4
+        },
+        "Obesity": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.5,
+          "std": 0.5000141264885816,
+          "unique": 2
+        }
+      }
+    },
+    {
+      "path": "data\\raw\\data_weight_height.csv",
+      "exists": true,
+      "bytes": 405871,
+      "status": "readable",
+      "rows": 17698,
+      "columns": [
+        "Gender",
+        "Age",
+        "Height",
+        "Weight",
+        "family_history_with_overweight",
+        "CH2O",
+        "FAF",
+        "Obesity"
+      ],
+      "duplicate_rows": 561,
+      "missing_by_column": {
+        "Gender": 0,
+        "Age": 0,
+        "Height": 0,
+        "Weight": 0,
+        "family_history_with_overweight": 0,
+        "CH2O": 0,
+        "FAF": 0,
+        "Obesity": 0
+      },
+      "dtypes": {
+        "Gender": "int64",
+        "Age": "int64",
+        "Height": "float64",
+        "Weight": "float64",
+        "family_history_with_overweight": "int64",
+        "CH2O": "int64",
+        "FAF": "int64",
+        "Obesity": "int64"
+      },
+      "target_counts": {
+        "0": 8849,
+        "1": 8849
+      },
+      "target_unique_values": [
+        "0",
+        "1"
+      ],
+      "numeric_summary": {
+        "Gender": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.5361057746638038,
+          "std": 0.4987087587563903,
+          "unique": 2
+        },
+        "Age": {
+          "min": 14.0,
+          "max": 61.0,
+          "mean": 24.081873658040458,
+          "std": 5.977942376264234,
+          "unique": 42
+        },
+        "Height": {
+          "min": 1.45,
+          "max": 1.98,
+          "mean": 1.7077025652616113,
+          "std": 0.08964490366493705,
+          "unique": 51
+        },
+        "Weight": {
+          "min": 39.0,
+          "max": 173.0,
+          "mean": 88.34813312238671,
+          "std": 26.419991826109154,
+          "unique": 1650
+        },
+        "family_history_with_overweight": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.8289072211549328,
+          "std": 0.3766006554190271,
+          "unique": 2
+        },
+        "CH2O": {
+          "min": 1.0,
+          "max": 3.0,
+          "mean": 2.017007571477003,
+          "std": 0.6686364379546426,
+          "unique": 3
+        },
+        "FAF": {
+          "min": 0.0,
+          "max": 3.0,
+          "mean": 1.0467849474516895,
+          "std": 0.8684528972461696,
+          "unique": 4
+        },
+        "Obesity": {
+          "min": 0.0,
+          "max": 1.0,
+          "mean": 0.5,
+          "std": 0.5000141264885816,
+          "unique": 2
+        }
+      }
+    },
+    {
+      "path": "data\\raw\\obesity_with_bmi.csv",
+      "exists": false,
+      "bytes": null,
+      "status": "missing"
+    },
+    {
+      "path": "data\\raw\\obesity_prediction_final_dataset.csv",
+      "exists": false,
+      "bytes": null,
+      "status": "missing"
+    },
+    {
+      "path": "data\\raw\\ObesityDataSet_raw_and_data_sinthetic.csv",
+      "exists": true,
+      "bytes": 263646,
+      "status": "readable",
+      "rows": 2111,
+      "columns": [
+        "Gender",
+        "Age",
+        "Height",
+        "Weight",
+        "family_history_with_overweight",
+        "FAVC",
+        "FCVC",
+        "NCP",
+        "CAEC",
+        "SMOKE",
+        "CH2O",
+        "SCC",
+        "FAF",
+        "TUE",
+        "CALC",
+        "MTRANS",
+        "NObeyesdad"
+      ],
+      "duplicate_rows": 24,
+      "missing_by_column": {
+        "Gender": 0,
+        "Age": 0,
+        "Height": 0,
+        "Weight": 0,
+        "family_history_with_overweight": 0,
+        "FAVC": 0,
+        "FCVC": 0,
+        "NCP": 0,
+        "CAEC": 0,
+        "SMOKE": 0,
+        "CH2O": 0,
+        "SCC": 0,
+        "FAF": 0,
+        "TUE": 0,
+        "CALC": 0,
+        "MTRANS": 0,
+        "NObeyesdad": 0
+      },
+      "dtypes": {
+        "Gender": "str",
+        "Age": "float64",
+        "Height": "float64",
+        "Weight": "float64",
+        "family_history_with_overweight": "str",
+        "FAVC": "str",
+        "FCVC": "float64",
+        "NCP": "float64",
+        "CAEC": "str",
+        "SMOKE": "str",
+        "CH2O": "float64",
+        "SCC": "str",
+        "FAF": "float64",
+        "TUE": "float64",
+        "CALC": "str",
+        "MTRANS": "str",
+        "NObeyesdad": "str"
+      },
+      "numeric_summary": {
+        "Age": {
+          "min": 14.0,
+          "max": 61.0,
+          "mean": 24.312599908574136,
+          "std": 6.345968273732234,
+          "unique": 1402
+        },
+        "Height": {
+          "min": 1.45,
+          "max": 1.98,
+          "mean": 1.7016773533870204,
+          "std": 0.09330481986792007,
+          "unique": 1574
+        },
+        "Weight": {
+          "min": 39.0,
+          "max": 173.0,
+          "mean": 86.58605812648035,
+          "std": 26.1911717452047,
+          "unique": 1525
+        },
+        "FCVC": {
+          "min": 1.0,
+          "max": 3.0,
+          "mean": 2.4190430615821885,
+          "std": 0.5339265785033002,
+          "unique": 810
+        },
+        "NCP": {
+          "min": 1.0,
+          "max": 4.0,
+          "mean": 2.6856280497394596,
+          "std": 0.7780386488418612,
+          "unique": 635
+        },
+        "CH2O": {
+          "min": 1.0,
+          "max": 3.0,
+          "mean": 2.0080114040738986,
+          "std": 0.6129534517968722,
+          "unique": 1268
+        },
+        "FAF": {
+          "min": 0.0,
+          "max": 3.0,
+          "mean": 1.0102976958787304,
+          "std": 0.850592430836698,
+          "unique": 1190
+        },
+        "TUE": {
+          "min": 0.0,
+          "max": 2.0,
+          "mean": 0.657865923732828,
+          "std": 0.6089272596763782,
+          "unique": 1129
+        }
+      }
+    }
+  ],
+  "final_dataset_analysis": {
+    "rows": 17698,
+    "columns": [
+      "Gender",
+      "Age",
+      "Height",
+      "Weight",
+      "BMI",
+      "family_history_with_overweight",
+      "CH2O",
+      "FAF",
+      "Obesity"
+    ],
+    "missing_required_columns": [],
+    "missing_cells": 0,
+    "duplicate_full_rows": 109,
+    "class_counts": {
+      "0": 8849,
+      "1": 8849
+    },
+    "class_proportions": {
+      "0": 0.5,
+      "1": 0.5
+    },
+    "numeric_summary": {
+      "Age": {
+        "count": 17698.0,
+        "mean": 24.0819,
+        "std": 5.9779,
+        "min": 14.0,
+        "25%": 20.0,
+        "50%": 23.0,
+        "75%": 26.0,
+        "max": 61.0
+      },
+      "Height": {
+        "count": 17698.0,
+        "mean": 1.7077,
+        "std": 0.0896,
+        "min": 1.45,
+        "25%": 1.64,
+        "50%": 1.71,
+        "75%": 1.77,
+        "max": 1.98
+      },
+      "Weight": {
+        "count": 17698.0,
+        "mean": 88.3481,
+        "std": 26.42,
+        "min": 39.0,
+        "25%": 66.65,
+        "50%": 85.0,
+        "75%": 111.0,
+        "max": 173.0
+      },
+      "BMI": {
+        "count": 17698.0,
+        "mean": 30.0865,
+        "std": 8.0434,
+        "min": 12.87,
+        "25%": 24.22,
+        "50%": 29.565,
+        "75%": 36.28,
+        "max": 55.15
+      },
+      "CH2O": {
+        "count": 17698.0,
+        "mean": 2.017,
+        "std": 0.6686,
+        "min": 1.0,
+        "25%": 2.0,
+        "50%": 2.0,
+        "75%": 2.0,
+        "max": 3.0
+      },
+      "FAF": {
+        "count": 17698.0,
+        "mean": 1.0468,
+        "std": 0.8685,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 1.0,
+        "75%": 2.0,
+        "max": 3.0
+      }
+    },
+    "bmi_by_target": {
+      "0": {
+        "count": 8849,
+        "min": 12.87,
+        "max": 36.71,
+        "mean": 23.43913775567861,
+        "below_30": 8582,
+        "at_least_30": 267
+      },
+      "1": {
+        "count": 8849,
+        "min": 16.51,
+        "max": 55.15,
+        "mean": 36.73389422533619,
+        "below_30": 408,
+        "at_least_30": 8441
+      }
+    },
+    "bmi30_disagreement_rows": 675,
+    "feature_groups_with_conflicting_labels": 52,
+    "unique_feature_groups": 17537
+  },
+  "figures": [
+    "reports\\figures\\target_distribution.png",
+    "reports\\figures\\bmi_by_target.png"
+  ]
+}

@@ -10,4 +10,5 @@
 
 The uploaded UCI obesity-level dataset is documented in `raw/README.md` and `reports/uci_dataset_assessment.md`. It is a mixed raw-and-synthetic 2,111-row, seven-class dataset, not a pure raw-only cohort. Its license is CC BY 4.0; retain attribution.
 
-The legacy files under `dataset/` remain separate and quarantined until their source lineage and binary target mapping are verified.
+The legacy obesity datasets are retained under `data/raw/` for provenance investigation. They are not used by the current UCI seven-class training pipeline. Their original source lineage and
+binary target mapping remain unverified.

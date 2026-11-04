@@ -11,7 +11,7 @@ The uploaded archive matches the official UCI Machine Learning Repository datase
 
 - Official record: https://archive.ics.uci.edu/dataset/544/estimation%2Bof%2Bobesity%2Blevels%2Bbased%2Bon%2Beating%2Bhabits%2Band%2Bphysical%2Bcondition
 - DOI: https://doi.org/10.24432/C5H31Z
-- Original article: Palechor & de la Hoz Manotas (2019), *Data in Brief*, DOI https://doi.org/10.1016/j.dib.2019.104344
+- Original article: Palechor & de la Hoz Manotas (2019), _Data in Brief_, DOI https://doi.org/10.1016/j.dib.2019.104344
 - License: Creative Commons Attribution 4.0 International (CC BY 4.0). Attribution is required.
 - Study population/context: individuals from Mexico, Peru and Colombia.
 
@@ -19,23 +19,24 @@ The file is called `raw_and_data_sinthetic` (original spelling in the source). I
 
 ## 2. File integrity
 
-| Item | Value |
-|---|---|
-| Archive size | 57,676 bytes |
-| Extracted CSV size | 263,646 bytes |
-| CSV rows | 2,111 |
-| CSV columns | 17 (16 features + 1 target) |
-| Missing cells | 0 |
-| Exact duplicate rows | 24 |
-| Unique rows after exact deduplication | 2,087 |
-| CSV SHA-256 | `28b6991062855d3d15642e38b1aa9d1b32fb7abbb5f5b096f1868cd706154b` |
-| ZIP SHA-256 | `9cf2ee5e3c3139815c059217a832ff3c0a4ec07bc55b80245f1b94bb3254b297` |
+| Item                                  | Value                                                              |
+| ------------------------------------- | ------------------------------------------------------------------ |
+| Archive size                          | 57,676 bytes                                                       |
+| Extracted CSV size                    | 263,646 bytes                                                      |
+| CSV rows                              | 2,111                                                              |
+| CSV columns                           | 17 (16 features + 1 target)                                        |
+| Missing cells                         | 0                                                                  |
+| Exact duplicate rows                  | 24                                                                 |
+| Unique rows after exact deduplication | 2,087                                                              |
+| CSV SHA-256                           | `28b6991062855d3d15642e38b1aa9d1b32fb7abbb5f5b096f1868cd706154b`   |
+| ZIP SHA-256                           | `9cf2ee5e3c3139815c059217a832ff3c0a4ec07bc55b80245f1b94bb3254b297` |
 
 The duplicate rows are exact duplicates. They occur in Insufficient_Weight (8 duplicate-row instances), Normal_Weight (10) and Overweight_Level_I (15); the sum of these class-level counts is not the total duplicate-row count because duplicate groups may contain more than two copies. Deduplicate exact rows before splitting, and record the removal count.
 
 ## 3. Schema
 
 Features:
+
 - Demographic/anthropometric: `Gender`, `Age`, `Height`, `Weight`.
 - Family history: `family_history_with_overweight`.
 - Eating habits: `FAVC`, `FCVC`, `NCP`, `CAEC`, `CH2O`, `CALC`.
@@ -48,16 +49,16 @@ All columns have zero missing values. The categorical columns are stored as stri
 
 ## 4. Target distribution
 
-| Target | Rows |
-|---|---:|
-| Insufficient_Weight | 272 |
-| Normal_Weight | 287 |
-| Overweight_Level_I | 290 |
-| Overweight_Level_II | 290 |
-| Obesity_Type_I | 351 |
-| Obesity_Type_II | 297 |
-| Obesity_Type_III | 324 |
-| **Total** | **2,111** |
+| Target              |      Rows |
+| ------------------- | --------: |
+| Insufficient_Weight |       272 |
+| Normal_Weight       |       287 |
+| Overweight_Level_I  |       290 |
+| Overweight_Level_II |       290 |
+| Obesity_Type_I      |       351 |
+| Obesity_Type_II     |       297 |
+| Obesity_Type_III    |       324 |
+| **Total**           | **2,111** |
 
 The classes are relatively balanced compared with a natural population sample. This is consistent with the source's synthetic balancing process; it must not be presented as a representative prevalence distribution.
 
@@ -84,7 +85,7 @@ An optional comparison experiment may train a separate anthropometric baseline u
 
 ## 7. Comparison with the repository's legacy binary dataset
 
-The legacy `dataset/obesity_prediction_dataset_final.csv` has 17,698 rows, 9 columns and a binary `Obesity` target, including a precomputed BMI field. The uploaded UCI file has 2,111 rows, 17 columns and the original seven-class `NObeyesdad` target, with no BMI field. These are not interchangeable files and should not be concatenated or treated as the same raw source without a documented transformation lineage.
+The legacy `data/raw/obesity_prediction_dataset_final.csv` has 17,698 rows, 9 columns and a binary `Obesity` target, including a precomputed BMI field. The uploaded UCI file has 2,111 rows, 17 columns and the original seven-class `NObeyesdad` target, with no BMI field. These are not interchangeable files and should not be concatenated or treated as the same raw source without a documented transformation lineage.
 
 The legacy binary file's source and label mapping remain unverified. Keep it quarantined as a legacy experiment until its original source files and label-generation code are recovered.
 
@@ -98,7 +99,10 @@ Extract the CSV to:
 
 `data/raw/ObesityDataSet_raw_and_data_sinthetic.csv`
 
-Keep both source archive and extracted CSV unchanged. Record the SHA-256 checksums above. Add a source citation and CC BY 4.0 attribution in `data/raw/README.md`. The raw archive is not committed by this documentation-only change; use the local Git commands in the main response to add it to the public repository.
+Keep both source archive and extracted CSV unchanged. Record the SHA-256 checksums above. Add a source citation and CC BY 4.0 attribution in `data/raw/README.md`. The original archive should be retained locally for reproducibility.
+The extracted CSV and its checksums should be documented in the
+repository. Public redistribution of the archive should follow
+the dataset license and repository size policy.
 
 ## 9. Recommendation
 
